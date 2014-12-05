@@ -1,56 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
-<head ng-app="myApp">
+<html lang="en" ng-app="myApp">
+<head>
   <meta charset="UTF-8">
   <title>Address Book</title>
   <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
 </head>
 <body>
 
-  <h1>Address Book</h1>
+  <div ng-controller="ContactsController as contactsCtrl">
+    <h1>Address Book</h1>
 
-  <form>
-    <div>
-      <label for="name">Name</label>
-      <input type="text" id="name" required>
-    </div>
-    <div>
-      <label for="phone">Phone</label>
-      <input type="text" id="phone">
-    </div>
-    <div>
-      <label for="address">Address</label>
-      <input type="text" id="address">
-    </div>
-    <div>
-      <label for="email">E-mail</label>
-      <input type="text" id="email">
-    </div>
-    <input type="submit" value="Add Contact">
-  </form>
+    <form ng-submit="contactsCtrl.newContact()">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" required>
+      </div>
+      <div>
+        <label for="phone">Phone</label>
+        <input type="text" id="phone">
+      </div>
+      <div>
+        <label for="address">Address</label>
+        <input type="text" id="address">
+      </div>
+      <div>
+        <label for="email">E-mail</label>
+        <input type="text" id="email">
+      </div>
+      <input type="submit" value="Add Contact">
+    </form>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Address</th>
-        <th>E-mail</th>
-      </tr>
-    <thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="bower_components/angular/angular.min.js"></script>
-  <script src="scripts/main.js"></script>
-</body>
-</html>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>E-mail</th>
+        </tr>
+        <thead>
+          <tbody>
+            <tr ng-repeat="contact in contactsCtrl.contacts">
+              <td>{{contact.name}}</td>
+              <td>{{contact.phone}}</td>
+              <td>{{contact.address}}</td>
+              <td>{{contact.email}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <script src="bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="bower_components/angular/angular.min.js"></script>
+      <script src="scripts/main.js"></script>
+    </body>
+    </html>
