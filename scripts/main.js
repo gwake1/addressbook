@@ -17,9 +17,9 @@
       vm.contacts.push(vm.newContact);
     };
 
-    vm.removeContact = function(){
+    vm.removeContact = function(contact){
       var index = vm.contacts.indexOf(contact);
-      vim.contacts.splice(index, 1);
+      vm.contacts.splice(index, 1);
     };
 
     vm.newContact = null;
