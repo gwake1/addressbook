@@ -1,7 +1,7 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
 
-. {
+.container {
   @include outer-container;
   label {
     @include span-columns(2);
