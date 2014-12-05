@@ -13,7 +13,7 @@
     }
     ];
 
-    vm.newContact = function(){
+    vm.addNewContact = function(){
       vm.contacts.push(vm.newContact);
     };
 
@@ -21,5 +21,7 @@
       var index = vm.contacts.indexOf(contact);
       vim.contacts.splice(index, 1);
     };
+
+    vm.newContact = null;
   });
 })();
