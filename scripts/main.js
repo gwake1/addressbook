@@ -1,27 +1,38 @@
 ;(function(){
   'use strict';
-  var app = angular.module("myApp", []);
-
-  app.controller('ContactsController', function(){
+  angular.module("myApp", [])
+  .controller('ContactsController', function($http){
     var vm = this;
-    vm.contacts = [
-    {
-      name: 'Leon Peck',
-      phone: 8675309,
-      address:  'Valhalla',
-      email: 'l335@aol.com'
-    }
-    ];
+
+    $http.get('https://geraldaddressbook.firebaseio.com/contacts.json')
+    .success(function(data){
+      vm.contacts = data;
+    });
 
     vm.addNewContact = function(){
       vm.contacts.push(vm.newContact);
+      $http.post('https://geraldaddressbook.firebaseio.com/contacts.json', vm.newContact)
+      .success(function(data){
+        vm.contacts[data.name] = vm.newContact;
+        vm.newContact = freshContact();
+      });
     };
 
-    vm.removeContact = function(contact){
-      var index = vm.contacts.indexOf(contact);
-      vm.contacts.splice(index, 1);
+    vm.removeContact = function(contactId){
+      var url = 'https://geraldaddressbook.firebaseio.com/contacts/' + contactId + '.json';
+      console.log(contactId);
+      $http.delete(url)
+      .success(function(data){
+        delete vm.contacts[contactId];
+      });
     };
 
-    vm.newContact = null;
+    vm.newContact = freshContact();
+
+    function freshContact(){
+      return {
+        name: ''
+      };
+    }
   });
 })();
