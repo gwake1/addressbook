@@ -4,17 +4,19 @@
   .controller('ContactsController', function($http){
     var vm = this;
 
-    $http.get('https://geraldaddressbook.firebaseio.com/contacts.json')
+    var getData = function(){$http.get('https://geraldaddressbook.firebaseio.com/contacts.json')
     .success(function(data){
       vm.contacts = data;
-    });
+    })};
+
+    getData();
 
     vm.addNewContact = function(){
-      vm.contacts.push(vm.newContact);
       $http.post('https://geraldaddressbook.firebaseio.com/contacts.json', vm.newContact)
       .success(function(data){
         vm.contacts[data.name] = vm.newContact;
         vm.newContact = freshContact();
+        getData();
       });
     };
 
