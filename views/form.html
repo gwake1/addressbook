@@ -1,0 +1,19 @@
+<form name="contactForm" ng-submit="contactForm.$valid && contactsCtrl.addNewContact(contact)">
+  <div class="form-group" ng-class="{'has-error':!contactsCtrl.newContact.name}">
+    <label class="control-label" for="name">Name</label>
+    <input class="form-control" type="text" id="name" ng-model="contactsCtrl.newContact.name" required>
+  </div>
+  <div class="form-group" ng-class="{'has-error':!contactsCtrl.newContact.phone}">
+    <label class="control-label" for="phone">Phone</label>
+    <input class="form-control" type="tel" id="phone" ng-model="contactsCtrl.newContact.phone">
+  </div>
+  <div class="form-group" ng-class="{'has-error':!contactsCtrl.newContact.address}">
+    <label class="control-label" for="address">Address</label>
+    <input class="form-control" type="text" id="address" ng-model="contactsCtrl.newContact.address">
+  </div>
+  <div class="form-group" ng-class="{'has-error':!contactsCtrl.newContact.email}">
+    <label class="control-label" for="email">E-mail</label>
+    <input class="form-control" type="email" id="email" ng-model="contactsCtrl.newContact.email">
+  </div>
+  <input type="submit" value="Add Contact" ng-show="contactForm.$valid">
+</form>

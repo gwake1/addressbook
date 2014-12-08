@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th>E-mail</th>
+    </tr>
+    <thead>
+      <tbody>
+        <tr ng-repeat="(contactId, contact) in contactsCtrl.contacts">
+          <td>{{contact.name}}</td>
+          <td>{{contact.phone}}</td>
+          <td>{{contact.address}}</td>
+          <td>{{contact.email}}</td>
+          <td><button ng-click="contactsCtrl.removeContact(contactId)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>

@@ -4,14 +4,12 @@
     .config(function($routeProvider){
       $routeProvider
       .when('/', {
-        templateUrl: 'views/index.html'
+        templateUrl: 'views/table.html'
       })
-      .when('/new',{
+      .when('/new', {
         templateUrl: 'views/form.html'
       })
-      .otherwise({
-        redirectTo:'/'
-      })
+      .otherwise({redirectTo: '/'});
     })
   .controller('ContactsController', function($http){
     var vm = this;
