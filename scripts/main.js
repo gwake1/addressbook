@@ -1,6 +1,18 @@
 ;(function(){
   'use strict';
-  angular.module("myApp", [])
+  angular.module("myApp", ['ngRoute'])
+    .config(function($routeProvider){
+      $routeProvider
+      .when('/', {
+        templateUrl: 'views/index.html'
+      })
+      .when('/new',{
+        templateUrl: 'views/form.html'
+      })
+      .otherwise({
+        redirectTo:'/'
+      })
+    })
   .controller('ContactsController', function($http){
     var vm = this;
 
@@ -16,7 +28,6 @@
       .success(function(data){
         vm.contacts[data.name] = vm.newContact;
         vm.newContact = freshContact();
-        getData();
       });
     };
 

@@ -12,6 +12,7 @@
 
   <div class="container" ng-controller="ContactsController as contactsCtrl">
     <h1>Address Book</h1>
+    <a class="btn btn-primary" href="/#/new">New Contact</a>
 
     <form name="contactForm" ng-submit="contactForm.$valid && contactsCtrl.addNewContact(contact)">
       <div class="form-group" ng-class="{'has-error':!contactsCtrl.newContact.name}">
@@ -51,11 +52,13 @@
               <td><button ng-click="contactsCtrl.removeContact(contactId)">Delete</button></td>
             </tr>
           </tbody>
+          <div ng-view></div>
         </table>
       </div>
       <script src="bower_components/jquery/dist/jquery.min.js"></script>
       <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
       <script src="bower_components/angular/angular.min.js"></script>
+      <script src="bower_components/angular-route/angular-route.min.js"></script>
       <script src="scripts/main.js"></script>
     </body>
     </html>
