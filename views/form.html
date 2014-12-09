@@ -1,19 +1,19 @@
-<form name="contactForm" ng-submit="contactForm.$valid && contactsCtrl.addNewContact(contact)">
-  <div class="form-group" ng-class="{'has-error':!contactsCtrl.newContact.name}">
+<form name="contactForm" ng-submit="contactForm.$valid && modify.addNewContact(contact)" novalidate>
+  <div class="form-group" ng-class="{'has-error':!modify.newContact.name}">
     <label class="control-label" for="name">Name</label>
-    <input class="form-control" type="text" id="name" ng-model="contactsCtrl.newContact.name" required>
+    <input class="form-control" type="text" id="name" ng-model="modify.newContact.name"  required>
   </div>
-  <div class="form-group" ng-class="{'has-error':!contactsCtrl.newContact.phone}">
+  <div class="form-group" ng-class="{'has-error':!modify.newContact.phone}">
     <label class="control-label" for="phone">Phone</label>
-    <input class="form-control" type="tel" id="phone" ng-model="contactsCtrl.newContact.phone">
+    <input class="form-control" type="tel" id="phone" ng-model="modify.newContact.phone">
   </div>
-  <div class="form-group" ng-class="{'has-error':!contactsCtrl.newContact.address}">
+  <div class="form-group" ng-class="{'has-error':!modify.newContact.address}">
     <label class="control-label" for="address">Address</label>
-    <input class="form-control" type="text" id="address" ng-model="contactsCtrl.newContact.address">
+    <input class="form-control" type="text" id="address" ng-model="modify.newContact.address">
   </div>
-  <div class="form-group" ng-class="{'has-error':!contactsCtrl.newContact.email}">
+  <div class="form-group" ng-class="{'has-error':!modify.newContact.email}">
     <label class="control-label" for="email">E-mail</label>
-    <input class="form-control" type="email" id="email" ng-model="contactsCtrl.newContact.email">
+    <input class="form-control" type="email" id="email" ng-model="modify.newContact.email">
   </div>
   <input type="submit" value="Add Contact" ng-show="contactForm.$valid">
 </form>

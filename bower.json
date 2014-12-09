@@ -19,6 +19,11 @@
     "bootstrap": "~3.3.1",
     "angular": "~1.3.5",
     "jquery": "~2.1.1",
-    "angular-route": "~1.3.5"
+    "angular-route": "~1.3.5",
+    "grunt": "~0.4.5",
+    "angular-strap": "~2.1.4"
+  },
+  "resolutions": {
+    "angular": "1.3.6"
   }
 }
