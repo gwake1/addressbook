@@ -40,8 +40,10 @@
     vm.addNewContact = function(){
       $http.post('https://geraldaddressbook.firebaseio.com/contacts.json', vm.newContact)
       .success(function(data){
+        var successContact = data.name;
         vm.contacts[data.name] = vm.newContact;
         vm.newContact = freshContact();
+        $location.path(successContact);
       });
     };
 
